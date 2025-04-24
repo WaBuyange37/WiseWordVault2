@@ -16,10 +16,10 @@
       <form action="">
         <div class="amafomu">
           <div class="left">
-            <span style="display: flex; flex-direction: horizontal;"> <label for="time">Time<input type="time"></label><label>Date<input type="date"></label></span>
-            <span><label for="author">Author</label><input type="name" placeholder="Author-name"></span>
+            <span style="display: flex; flex-direction: horizontal;"> <label for="time">Time<input type="time" id="time"></label><label for="date">Date<input type="date" id="date"></label></span>
+            <span><label for="AuthorName">Author</label><input type="text" id="AuthorName" placeholder="Author-name"></span>
           </div>
-          <div class="right">
+          <!--<div class="right">
             <span><input type="search" placeholder="search by Author or Title or Date"></span>
             <span><select name="Title" id="select">
               <label for="select">Select a Quote</label>
@@ -28,7 +28,7 @@
               <option value="">Jesus is God</option>
               <option value="">He is God's Ship</option>
             </select></span>
-          </div>
+          </div>-->
          
         </div>
         <div class="amafomu">
@@ -38,10 +38,13 @@
           
         </div>
         <div class="amafomu">
-          <input type="button" value="Save"><input type="button" value="Delete"><input type="button" value="ExportPDF"></div>
+          <button type="button" onclick="saveQuote()">Save</button>
+          
+          <input type="button" value="Delete">
+          <input type="button" value="ExportPDF"></div>
       </form>
     </div>
   </section>
-  
+  <script src="app.js"></script>
 </body>
 </html>
