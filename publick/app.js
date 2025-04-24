@@ -22,7 +22,10 @@ function saveQuote(){
     // }
   }
   quotes.push(newQuote);
-  console.log(quotes);
-  saveQuote()
-  
+ 
+  author.value= '';
+  timeYaQuote.value= '';
+  dateYaQuote.value= '';
+  quote.value= '';
+  console.log(quotes)
 }
