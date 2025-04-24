@@ -1,0 +1,35 @@
+body{
+  background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 80%);
+}
+.wiseWord{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+header{
+  max-width: 95%;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 768px) {
+  .wiseWord {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .wiseWord header {
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+  }
+}

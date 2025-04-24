@@ -1,0 +1,1 @@
+// frontend Logic Fetch DOM
