@@ -87,8 +87,7 @@ input[type="name"],
 input[type="time"],
 input[type="date"],
 input[type="search"],
-input[type="option"],
-textarea {
+input[type="option"] {
   width: 100%;
   padding: 0.7rem 1rem;
   font-size: 1rem;
@@ -108,6 +107,23 @@ select{
 input:focus, select:focus {
   border-color: #2a7b9b;
   outline: none;
+}
+
+.amajambo {
+  width: 100%;
+}
+
+textarea.wise1 {
+  width: 100%;
+  height: 200px;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  transition: border 0.3s ease;
 }
 
 @media (max-width: 768px) {
