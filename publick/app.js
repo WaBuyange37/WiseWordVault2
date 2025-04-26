@@ -44,6 +44,14 @@ function saveQuote(){
 
 // function to allow select quote work auto
 function quoteSelectDropDown(){
-  
+  selectQuote.innerHTML = `<option value="">Select a Quote</option>`;
+
+  quotes.forEach((agaquote)=>{
+    const option = document.createElement('option');
+    option.value = agaquote.id;
+    option.textContent = `${agaquote.author}-${agaquote.igihe}`
+    selectQuote.appendChild(option);
+  })
 }
+quoteSelectDropDown()
 
