@@ -3,6 +3,10 @@ let authorInput = document.getElementById('AuthorName');
 let dateYaQuoteInput = document.getElementById('date');
 let timeYaQuoteInput = document.getElementById('time');
 let quoteInput = document.getElementById('wise');
+
+// for selecting needed quote-> select >options
+const selectQuote = document.getElementById('select');
+
 let quotes = JSON.parse(localStorage.getItem('quotes'))||[];
 
 function saveQuote(){
@@ -36,5 +40,10 @@ function saveQuote(){
   dateYaQuoteInput.value = "";
   alert('Saved successful');
   console.log(quotes)
+}
+
+// function to allow select quote work auto
+function quoteSelectDropDown(){
+  
 }
 
