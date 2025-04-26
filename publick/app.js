@@ -56,3 +56,19 @@ function quoteSelectDropDown(){
 }
 quoteSelectDropDown()
 
+// function to search by author---> I better use filter
+function searchByAuthor(){
+  // id="wise" && id="searcByAuthor"
+  let mySearch = document.getElementById('searcByAuthor').value;
+  const inputField = document.getElementById('wise');
+  quotes.filter((quote)=>{
+    if(quote.author === mySearch){
+      inputField.value = `Date: ${quote.igihe}
+      Author: ${quote.author}
+      -------------------------------------------------------------------
+      ${quote.quote}`
+    }
+  })
+
+}
+
