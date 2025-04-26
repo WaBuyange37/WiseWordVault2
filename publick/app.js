@@ -39,7 +39,8 @@ function saveQuote(){
   quoteInput.value = "";
   dateYaQuoteInput.value = "";
   alert('Saved successful');
-  console.log(quotes)
+  quoteSelectDropDown();
+  // console.log(quotes)--- no need to consoloLog this if it works well
 }
 
 // function to allow select quote work auto
