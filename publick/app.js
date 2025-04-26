@@ -1,19 +1,25 @@
-let quotes = []
-let author = document.getElementById('AuthorName');
-let dateYaQuote = document.getElementById('date');
-let timeYaQuote = document.getElementById('time');
-let quote = document.getElementById('wise');
+
+let authorInput = document.getElementById('AuthorName');
+let dateYaQuoteInput = document.getElementById('date');
+let timeYaQuoteInput = document.getElementById('time');
+let quoteInput = document.getElementById('wise');
+let quotes = JSON.parse(localStorage.getItem('quotes'))||[];
+
 function saveQuote(){
-  author=author.value;
-  timeYaQuote = timeYaQuote.value;
-  dateYaQuote = dateYaQuote.value;
-  quote = quote.value;
+  const author = authorInput.value.trim();
+  const timeYaQuote = timeYaQuoteInput.value;
+  const dateYaQuote = dateYaQuoteInput.value; 
+  const quote = quoteInput.value.trim();
   let fullDate= new Date(`${dateYaQuote}T${timeYaQuote}`)
+
+  if(!author || !timeYaQuote || !dateYaQuote || !quote){
+    alert(`fill all form please!!`)
+  }
   
   const newQuote = {
+    id: Date.now(),//for diffeeretiating all quotes
+    igihe: fullDate,
     author: author,
-    time: timeYaQuote,
-    date: dateYaQuote,
     quote: quote,
     // nibaYakunze(){
     //   console.log(`${this.author} uyu niwe wanditse iy :
@@ -21,11 +27,13 @@ function saveQuote(){
     //   iki gihe: ${this.fullDate}`);
     // }
   }
-  quotes.push(newQuote);
+ quotes.push(newQuote);
+ localStorage.setItem('quotes', JSON.stringify(quotes));
  
-  author.value= '';
-  timeYaQuote.value= '';
-  dateYaQuote.value= '';
-  quote.value= '';
+  authorInput.value = "";
+  timeYaQuoteInput.value = "";
+  quoteInput.value = "";
+  dateYaQuoteInput.value = "";
+  alert('Saved successful');
   console.log(quotes)
 }
