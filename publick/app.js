@@ -48,12 +48,34 @@ function saveQuote(){
 function quoteSelectDropDown(){
   selectQuote.innerHTML = `<option value="">Select a Quote</option>`;
 
-  quotes.forEach((agaquote)=>{
+  let myPint = quotes.forEach((agaquote)=>{
     const option = document.createElement('option');
     option.value = agaquote.id;
     option.textContent = `${agaquote.author} - ${new Date(agaquote.igihe).toLocaleString()}`
     selectQuote.appendChild(option);
   })
+  // for clicking on quote list
+  function selectQuoteOption() {
+    selectQuote.addEventListener('change', () => {
+      const selectedQuoteId = selectQuote.value;
+      
+      // Find the selected quote by its ID
+      const selectedQuote = quotes.find(quote => quote.id == selectedQuoteId);
+      
+      // Update the input field with the quote details if a quote is selected
+      if (selectedQuote) {
+        const inputField = document.getElementById('wise');
+        inputField.value = `
+          Date: ${new Date(selectedQuote.igihe).toLocaleString()}
+          Author: ${selectedQuote.author}
+          -------------------------------------------------------------------
+          \t${selectedQuote.quote}
+        `;
+      }
+    });
+  }
+
+  selectQuoteOption();
 }
 quoteSelectDropDown()
 
@@ -64,12 +86,15 @@ quoteSelectDropDown()
     const inputField = document.getElementById('wise');
     quotes.filter((quote)=>{
       if(quote.author.toLowerCase() === mySearch){
-        inputField.value = `Date: ${quote.igihe}
-        Author: ${quote.author}
-        -------------------------------------------------------------------
-        ${quote.quote}`
+        inputField.value = `
+                Date: ${quote.igihe}
+                Author: ${quote.author}
+                -------------------------------------------------------------------
+                          \t${quote.quote}`
       }
     })
 
   }
   document.getElementById('searcByAuthor').addEventListener('input', searchByAuthor);
+  
+
