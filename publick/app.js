@@ -1,4 +1,5 @@
-
+// const fs = require('fs').promises;
+// const path = require('path');
 let authorInput = document.getElementById('AuthorName');
 let dateYaQuoteInput = document.getElementById('date');
 let timeYaQuoteInput = document.getElementById('time');
@@ -57,6 +58,7 @@ function quoteSelectDropDown(){
   // for clicking on quote list
   function selectQuoteOption() {
     selectQuote.addEventListener('change', () => {
+      
       const selectedQuoteId = selectQuote.value;
       
       // Find the selected quote by its ID
@@ -71,7 +73,9 @@ function quoteSelectDropDown(){
           -------------------------------------------------------------------
           \t${selectedQuote.quote}
         `;
+        inputField.readOnly = true;
       }
+      
     });
   }
 
@@ -90,11 +94,14 @@ quoteSelectDropDown()
                 Date: ${quote.igihe}
                 Author: ${quote.author}
                 -------------------------------------------------------------------
-                          \t${quote.quote}`
+                          \t${quote.quote}`;
+                          inputField.readOnly = true;
       }
     })
 
   }
   document.getElementById('searcByAuthor').addEventListener('input', searchByAuthor);
-  
+
+// save to JSON
+
 
