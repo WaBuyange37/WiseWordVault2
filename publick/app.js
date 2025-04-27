@@ -74,6 +74,7 @@ function quoteSelectDropDown(){
           \t${selectedQuote.quote}
         `;
         inputField.readOnly = true;
+        
       }
       
     });
@@ -83,20 +84,27 @@ function quoteSelectDropDown(){
 }
 quoteSelectDropDown()
 
-// function to search by author---> I better use filter
+// function to search by author---> I better use filter to save next feature Igihe nzemera ko search ibona all of author
   function searchByAuthor(){
     // id="wise" && id="searcByAuthor"
     let mySearch = document.getElementById('searcByAuthor').value.trim().toLowerCase();
     const inputField = document.getElementById('wise');
+
+    // if search is Empty then let field input be empt and write active
+    if (mySearch === "") {
+      inputField.value = "";
+      inputField.readOnly = false;
+      return;
+    }
     quotes.filter((quote)=>{
-      if(quote.author.toLowerCase() === mySearch){
-        inputField.value = `
+            if(quote.author.toLowerCase() === mySearch.trim().toLowerCase()){
+              inputField.value = `
                 Date: ${quote.igihe}
                 Author: ${quote.author}
                 -------------------------------------------------------------------
                           \t${quote.quote}`;
                           inputField.readOnly = true;
-      }
+            }
     })
 
   }
