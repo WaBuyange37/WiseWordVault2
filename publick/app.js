@@ -18,6 +18,7 @@ function saveQuote(){
 
   if(!author || !timeYaQuote || !dateYaQuote || !quote){
     alert(`fill all form please!!`)
+    return;
   }
   
   const newQuote = {
@@ -50,25 +51,25 @@ function quoteSelectDropDown(){
   quotes.forEach((agaquote)=>{
     const option = document.createElement('option');
     option.value = agaquote.id;
-    option.textContent = `${agaquote.author}-${agaquote.igihe}`
+    option.textContent = `${agaquote.author} - ${new Date(agaquote.igihe).toLocaleString()}`
     selectQuote.appendChild(option);
   })
 }
 quoteSelectDropDown()
 
 // function to search by author---> I better use filter
-function searchByAuthor(){
-  // id="wise" && id="searcByAuthor"
-  let mySearch = document.getElementById('searcByAuthor').value;
-  const inputField = document.getElementById('wise');
-  quotes.filter((quote)=>{
-    if(quote.author === mySearch){
-      inputField.value = `Date: ${quote.igihe}
-      Author: ${quote.author}
-      -------------------------------------------------------------------
-      ${quote.quote}`
-    }
-  })
+  function searchByAuthor(){
+    // id="wise" && id="searcByAuthor"
+    let mySearch = document.getElementById('searcByAuthor').value;
+    const inputField = document.getElementById('wise');
+    quotes.filter((quote)=>{
+      if(quote.author === mySearch){
+        inputField.value = `Date: ${quote.igihe}
+        Author: ${quote.author}
+        -------------------------------------------------------------------
+        ${quote.quote}`
+      }
+    })
 
-}
-
+  }
+  document.getElementById('searcByAuthor').addEventListener('input', searchByAuthor);
